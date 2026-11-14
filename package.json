@@ -1,0 +1,19 @@
+{
+  "name": "beautychem-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BeautyChem AI: косметика құрамын камера арқылы тану және химиялық талдау (PWA)",
+  "workspaces": ["frontend", "backend"],
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c magenta,cyan \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "start": "npm run start -w backend",
+    "serve": "npm run build && npm run start",
+    "test": "npm run test -w backend",
+    "typecheck": "npm run typecheck -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
