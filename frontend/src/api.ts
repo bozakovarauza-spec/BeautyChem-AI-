@@ -22,7 +22,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   }
   let res: Response;
   try {
-    res = await fetch('/api' + path, { ...init, headers });
+    res = await fetch('https://beautychem-ai.onrender.com/api' + path, { ...init, headers });
   } catch {
     throw new ApiError(0, 'network', navigator.onLine ? 'Серверге қосылу мүмкін болмады.' : 'Интернет байланысы жоқ.');
   }
