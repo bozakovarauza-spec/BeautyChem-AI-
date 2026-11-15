@@ -21,6 +21,24 @@ export function createApp(db) {
     res.setHeader('Permissions-Policy', 'camera=(self), microphone=()');
     next();
   });
+   // Vercel frontend үшін CORS рұқсаты
+  app.use((req, res, next) => {
+    const allowedOrigin = 'https://beauty-chem-ai.vercel.app';
+    const origin = req.headers.origin;
+
+    if (origin === allowedOrigin) {
+      res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+    }
+
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Device-Id');
+
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(204);
+    }
+
+    next();
+  });
   app.use(express.json({ limit: '2mb' }));
 
   const upload = multer({
@@ -114,6 +132,6 @@ export function createApp(db) {
     console.error('[server error]', err);
     res.status(500).json({ error: { code: 'internal', message: 'Серверде күтпеген қате орын алды.' } });
   });
-
+git add backend/src/app.js
   return app;
 }
