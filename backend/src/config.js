@@ -13,7 +13,7 @@ export const config = {
   host: process.env.HOST || '0.0.0.0',
   // API кілті ТЕК серверде сақталады. Браузерге ешқашан жіберілмейді.
   geminiKey: (process.env.GEMINI_API_KEY || '').trim(),
-  geminiModel: (process.env.GEMINI_MODEL || 'gemini-2.5-flash').trim(),
+  geminiModel: (process.env.GEMINI_MODEL || 'gemini-3.8-flash').trim(),
   geminiBase: (process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com/v1beta').replace(/\/$/, ''),
   dbPath: process.env.DATABASE_PATH
     ? path.resolve(ROOT, process.env.DATABASE_PATH)
