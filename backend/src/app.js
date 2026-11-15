@@ -132,6 +132,6 @@ export function createApp(db) {
     console.error('[server error]', err);
     res.status(500).json({ error: { code: 'internal', message: 'Серверде күтпеген қате орын алды.' } });
   });
-git add backend/src/app.js
   return app;
 }
+
